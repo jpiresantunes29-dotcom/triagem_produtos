@@ -1,110 +1,110 @@
-# Enunciado do Projeto
+# Project Brief
 
-## Contexto
+## Context
 
-Uma pequena loja virtual precisa de um sistema simples para realizar a triagem inicial de pedidos antes do envio. Atualmente, essa verificacao e feita manualmente, o que torna o processo mais lento e aumenta a chance de erros.
+A small online store needs a simple system to perform the initial triage of orders before shipping. Currently, this verification is done manually, which slows down the process and increases the chance of errors.
 
-Seu desafio e desenvolver um programa em Python capaz de analisar pedidos com base em regras de negocio e informar se cada compra deve ser aprovada, enviada para revisao ou bloqueada.
+Your challenge is to develop a Python program capable of analyzing orders based on business rules and reporting whether each purchase should be approved, sent for review, or blocked.
 
-## Objetivo
+## Objective
 
-Criar um sistema de triagem de pedidos que permita:
+Create an order triage system that allows:
 
-- cadastrar pedidos pelo terminal
-- validar as informacoes digitadas
-- classificar pedidos de acordo com regras definidas
-- armazenar os pedidos durante a execucao
-- consultar relatorios e listagens usando um menu interativo
+- registering orders via terminal
+- validating entered information
+- classifying orders according to defined rules
+- storing orders during execution
+- querying reports and listings using an interactive menu
 
-## Conceitos obrigatorios
+## Required concepts
 
-O projeto deve exigir o uso integrado dos seguintes conceitos fundamentais de programacao:
+The project must require the integrated use of the following fundamental programming concepts:
 
-- operadores relacionais: `==`, `!=`, `>`, `<`, `>=`, `<=`
-- operadores logicos: `and`, `or`, `not`
-- estruturas condicionais: `if`, `elif`, `else`
-- estruturas de repeticao
+- relational operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- logical operators: `and`, `or`, `not`
+- conditional structures: `if`, `elif`, `else`
+- loop structures
 
-## Dados de entrada
+## Input data
 
-Para cada pedido, o programa deve receber:
+For each order, the program must receive:
 
-- codigo do pedido
-- valor da compra
-- idade do cliente
-- quantidade de itens
-- pagamento aprovado (`sim` ou `nao`)
-- cliente premium (`sim` ou `nao`)
-- endereco confirmado (`sim` ou `nao`)
+- order code
+- order amount
+- client age
+- item count
+- payment approved (`yes` or `no`)
+- premium client (`yes` or `no`)
+- address confirmed (`yes` or `no`)
 
-As entradas devem ser validadas para evitar:
-- numeros negativos
-- quantidade invalida
-- respostas fora do padrao esperado
+Inputs must be validated to avoid:
+- negative numbers
+- invalid quantities
+- responses outside the expected pattern
 
-## Regras de classificacao
+## Classification rules
 
-### Pedido bloqueado
+### Blocked order
 
-O pedido deve ser classificado como `BLOQUEADO` quando ocorrer qualquer uma das seguintes situacoes:
+The order must be classified as `BLOCKED` when any of the following occurs:
 
-- pagamento nao aprovado
-- cliente menor de idade
-- endereco nao confirmado
+- payment not approved
+- underage client
+- address not confirmed
 
-### Pedido em revisao
+### Order under review
 
-Se o pedido nao for bloqueado, ele deve ser classificado como `EM REVISAO` quando ocorrer pelo menos uma destas situacoes:
+If the order is not blocked, it must be classified as `UNDER REVIEW` when at least one of the following occurs:
 
-- valor da compra maior que `1000`
-- quantidade de itens maior ou igual a `10`
-- cliente nao premium com compra acima de `500`
+- order amount greater than `1000`
+- item count greater than or equal to `10`
+- non-premium client with order above `500`
 
-### Pedido aprovado
+### Approved order
 
-O pedido sera classificado como `APROVADO` quando:
+The order will be classified as `APPROVED` when:
 
-- nao se enquadrar nas regras de bloqueio
-- nao se enquadrar nas regras de revisao
+- it does not meet the blocking rules
+- it does not meet the review rules
 
-## Saidas esperadas
+## Expected outputs
 
-Para cada pedido cadastrado, o programa deve exibir:
+For each registered order, the program must display:
 
-- codigo do pedido
-- status final da analise
-- motivo principal da classificacao
+- order code
+- final analysis status
+- main reason for classification
 
-O sistema tambem deve permitir a consulta de:
+The system must also allow querying:
 
-- todos os pedidos cadastrados
-- resumo geral com contagem por categoria
-- pedido de maior valor
-- lista de pedidos bloqueados
+- all registered orders
+- general summary with count by category
+- highest value order
+- list of blocked orders
 
-## Requisitos funcionais
+## Functional requirements
 
-O programa deve:
+The program must:
 
-- usar `for` no cadastro de varios pedidos
-- utilizar `if`, `elif` e `else` para as decisoes
-- aplicar operadores logicos e relacionais nas regras
-- validar as entradas do usuario
-- organizar o codigo em funcoes
-- permitir navegacao por menu
+- use `for` when registering multiple orders
+- use `if`, `elif`, and `else` for decisions
+- apply logical and relational operators in the rules
+- validate user inputs
+- organize code into functions
+- allow navigation via menu
 
-## Possiveis expansoes
+## Possible expansions
 
-Depois da versao inicial, o projeto pode evoluir com:
+After the initial version, the project can evolve with:
 
-- salvamento em arquivo
-- filtros por status
-- calculo de media de compras
-- percentual de pedidos aprovados, revisados e bloqueados
-- edicao de pedidos
-- interface grafica
-- integracao com banco de dados
+- file persistence
+- filters by status
+- average order amount calculation
+- percentage of approved, reviewed, and blocked orders
+- order editing
+- graphical interface
+- database integration
 
-## Resultado esperado
+## Expected result
 
-Ao final, o projeto deve representar um pequeno sistema em Python capaz de unir logica de programacao, validacao de dados, modularizacao e interacao com o usuario de forma clara e funcional.
+At the end, the project should represent a small Python system capable of combining programming logic, input validation, modularization, and user interaction in a clear and functional way.

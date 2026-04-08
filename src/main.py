@@ -1,89 +1,89 @@
-from validacoes import (
-    ler_inteiro_positivo,
-    ler_inteiro_nao_negativo,
-    ler_float_nao_negativo,
-    ler_sim_ou_nao,
+from validations import (
+    read_positive_integer,
+    read_non_negative_integer,
+    read_non_negative_float,
+    read_yes_or_no,
 )
-from regras import classificar_pedido
-from relatorios import (
-    mostrar_todos_os_pedidos,
-    mostrar_resumo,
-    mostrar_maior_pedido,
-    mostrar_bloqueados,
+from rules import classify_order
+from reports import (
+    show_all_orders,
+    show_summary,
+    show_highest_order,
+    show_blocked,
 )
 
 
-def cadastrar_pedidos(pedidos):
-    quantidade = ler_inteiro_positivo("Quantos pedidos deseja analisar? ")
+def register_orders(orders):
+    count = read_positive_integer("How many orders do you want to analyze? ")
 
-    for i in range(quantidade):
-        print(f"\nPedido {i + 1}")
+    for i in range(count):
+        print(f"\nOrder {i + 1}")
 
-        codigo = input("Codigo do pedido: ").strip()
-        valor = ler_float_nao_negativo("Valor da compra: ")
-        idade = ler_inteiro_nao_negativo("Idade do cliente: ")
-        quantidade_itens = ler_inteiro_positivo("Quantidade de itens: ")
-        pagamento_aprovado = ler_sim_ou_nao("Pagamento aprovado (sim/nao): ")
-        cliente_premium = ler_sim_ou_nao("Cliente premium (sim/nao): ")
-        endereco_confirmado = ler_sim_ou_nao("Endereco confirmado (sim/nao): ")
+        code = input("Order code: ").strip()
+        amount = read_non_negative_float("Order amount: ")
+        age = read_non_negative_integer("Client age: ")
+        item_count = read_positive_integer("Item count: ")
+        payment_approved = read_yes_or_no("Payment approved (yes/no): ")
+        premium_client = read_yes_or_no("Premium client (yes/no): ")
+        address_confirmed = read_yes_or_no("Address confirmed (yes/no): ")
 
-        status, motivo = classificar_pedido(
-            valor,
-            idade,
-            quantidade_itens,
-            pagamento_aprovado,
-            cliente_premium,
-            endereco_confirmado,
+        status, reason = classify_order(
+            amount,
+            age,
+            item_count,
+            payment_approved,
+            premium_client,
+            address_confirmed,
         )
 
-        pedido = {
-            "codigo": codigo,
-            "valor": valor,
-            "idade": idade,
-            "quantidade_itens": quantidade_itens,
-            "pagamento_aprovado": pagamento_aprovado,
-            "cliente_premium": cliente_premium,
-            "endereco_confirmado": endereco_confirmado,
+        order = {
+            "code": code,
+            "amount": amount,
+            "age": age,
+            "item_count": item_count,
+            "payment_approved": payment_approved,
+            "premium_client": premium_client,
+            "address_confirmed": address_confirmed,
             "status": status,
-            "motivo": motivo,
+            "reason": reason,
         }
 
-        pedidos.append(pedido)
+        orders.append(order)
 
-        print(f"Codigo: {codigo}")
-        print(f"Resultado: {status}")
-        print(f"Motivo: {motivo}")
+        print(f"Code: {code}")
+        print(f"Result: {status}")
+        print(f"Reason: {reason}")
 
 
 def main():
-    pedidos = []
+    orders = []
 
     while True:
         print("\n=== MENU ===")
-        print("1 - Cadastrar pedidos")
-        print("2 - Mostrar todos os pedidos")
-        print("3 - Mostrar resumo")
-        print("4 - Mostrar pedido de maior valor")
-        print("5 - Mostrar pedidos bloqueados")
-        print("6 - Sair")
+        print("1 - Register orders")
+        print("2 - Show all orders")
+        print("3 - Show summary")
+        print("4 - Show highest value order")
+        print("5 - Show blocked orders")
+        print("6 - Exit")
 
-        opcao = input("Escolha uma opcao: ").strip()
+        option = input("Choose an option: ").strip()
 
-        if opcao == "1":
-            cadastrar_pedidos(pedidos)
-        elif opcao == "2":
-            mostrar_todos_os_pedidos(pedidos)
-        elif opcao == "3":
-            mostrar_resumo(pedidos)
-        elif opcao == "4":
-            mostrar_maior_pedido(pedidos)
-        elif opcao == "5":
-            mostrar_bloqueados(pedidos)
-        elif opcao == "6":
-            print("Encerrando o programa...")
+        if option == "1":
+            register_orders(orders)
+        elif option == "2":
+            show_all_orders(orders)
+        elif option == "3":
+            show_summary(orders)
+        elif option == "4":
+            show_highest_order(orders)
+        elif option == "5":
+            show_blocked(orders)
+        elif option == "6":
+            print("Exiting program...")
             break
         else:
-            print("Opcao invalida. Tente novamente.")
+            print("Invalid option. Please try again.")
 
 
 if __name__ == "__main__":

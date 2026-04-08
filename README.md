@@ -1,65 +1,67 @@
-# Triagem de Pedidos
+# Order Triage
 
-Sistema em Python para cadastrar, classificar e consultar pedidos de uma loja virtual, aplicando regras de aprovacao, revisao e bloqueio com validacao de dados e relatorios simples.
+A Python system to register, classify, and query orders from an online store, applying approval, review, and blocking rules with input validation and simple reports.
 
-## Sobre o projeto
+## About the project
 
-Este projeto foi desenvolvido com foco em pratica de logica de programacao e organizacao de codigo em Python. A proposta e simular um sistema simples de triagem de pedidos, como os usados em lojas virtuais para analisar compras antes da aprovacao final.
+This project was developed with a focus on practicing programming logic and code organization in Python. The goal is to simulate a simple order triage system, like those used in online stores to analyze purchases before final approval.
 
-Durante a execucao, o usuario pode cadastrar pedidos, visualizar os registros salvos e consultar relatorios diretamente pelo terminal.
+During execution, the user can register orders, view saved records, and query reports directly from the terminal.
 
-## Funcionalidades
+## Features
 
-- cadastro de pedidos pelo terminal
-- validacao de entradas numericas e respostas `sim/nao`
-- classificacao automatica dos pedidos
-- listagem de todos os pedidos cadastrados
-- resumo geral com totais por categoria
-- identificacao do pedido de maior valor
-- exibicao apenas dos pedidos bloqueados
-- menu interativo para navegar pelas opcoes do sistema
+- order registration via terminal
+- validation of numeric inputs and yes/no responses
+- automatic order classification
+- listing of all registered orders
+- general summary with totals by category
+- identification of the highest value order
+- display of blocked orders only
+- interactive menu to navigate through system options
 
-## Regras de classificacao
+## Classification rules
 
-Cada pedido pode receber um dos seguintes status:
+Each order receives one of the following statuses:
 
-### `BLOQUEADO`
-O pedido sera bloqueado quando ocorrer pelo menos uma destas situacoes:
+### `BLOCKED`
+The order will be blocked when at least one of the following occurs:
 
-- pagamento nao aprovado
-- cliente menor de idade
-- endereco nao confirmado
+- payment not approved
+- underage client
+- address not confirmed
 
-### `EM REVISAO`
-O pedido sera enviado para revisao quando nao estiver bloqueado, mas apresentar alguma condicao de risco, como:
+### `UNDER REVIEW`
+The order will be sent for review when it is not blocked but presents a risk condition, such as:
 
-- valor da compra maior que `1000`
-- quantidade de itens maior ou igual a `10`
-- cliente nao premium com compra acima de `500`
+- order amount greater than `1000`
+- item count greater than or equal to `10`
+- non-premium client with order above `500`
 
-### `APROVADO`
-O pedido sera aprovado quando nao se encaixar nas regras de bloqueio nem nas regras de revisao.
+### `APPROVED`
+The order will be approved when it does not fit the blocking or review rules.
 
-## Conceitos praticados
+## Concepts practiced
 
-Este projeto trabalha varios fundamentos importantes de programacao:
+This project covers several important programming fundamentals:
 
-- operadores relacionais
-- operadores logicos
-- estruturas condicionais com `if`, `elif` e `else`
-- repeticao
-- validacao de dados
-- modularizacao do codigo
-- organizacao em multiplos arquivos
+- relational operators
+- logical operators
+- conditional structures with `if`, `elif`, and `else`
+- loops
+- input validation
+- code modularization
+- organization across multiple files
 
-## Estrutura do projeto
+## Project structure
 
+```
 triagem_produtos/
 ├── docs/
 │   └── enunciado.md
 ├── src/
 │   ├── main.py
-│   ├── validacoes.py
-│   ├── regras.py
-│   └── relatorios.py
+│   ├── validations.py
+│   ├── rules.py
+│   └── reports.py
 └── README.md
+```
