@@ -11,6 +11,7 @@ from reports import (
     show_highest_order,
     show_blocked,
 )
+from storage import load_orders, save_orders
 
 
 def register_orders(orders):
@@ -49,6 +50,7 @@ def register_orders(orders):
         }
 
         orders.append(order)
+        save_orders(orders)
 
         print(f"Code: {code}")
         print(f"Result: {status}")
@@ -56,7 +58,7 @@ def register_orders(orders):
 
 
 def main():
-    orders = []
+    orders = load_orders()
 
     while True:
         print("\n=== MENU ===")
